@@ -6,10 +6,10 @@
     .controller('AlreadyBoughtController', AlreadyBoughtController)
     .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
 
+  // Controller for To Buy list
   ToBuyController.$inject = ['ShoppingListCheckOffService'];
   function ToBuyController(ShoppingListCheckOffService) {
     var toBuy = this;
-
     toBuy.items = ShoppingListCheckOffService.getToBuyItems();
 
     toBuy.buyItem = function (index) {
@@ -17,13 +17,14 @@
     };
   }
 
+  // Controller for Already Bought list
   AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
   function AlreadyBoughtController(ShoppingListCheckOffService) {
     var alreadyBought = this;
-
     alreadyBought.items = ShoppingListCheckOffService.getBoughtItems();
   }
 
+  // Service for managing the lists
   function ShoppingListCheckOffService() {
     var service = this;
 
